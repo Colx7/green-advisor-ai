@@ -224,13 +224,6 @@ docs/                架构、演示指南、面试问答和简历描述
 开发计划.txt         完整开发和验收计划
 ```
 
-## 面试材料
-
-- `docs/architecture.md`：系统架构和关键取舍
-- `docs/demo-guide.md`：10分钟演示顺序
-- `docs/interview-qa.md`：高频技术问答
-- `docs/resume-description.md`：简历项目描述
-
 ## 当前边界
 
 - 评分是演示规则，不代表专业认证结果。
