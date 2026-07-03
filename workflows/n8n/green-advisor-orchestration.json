@@ -1,0 +1,53 @@
+{
+  "name": "绿智顾问-诊断编排",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "green-advisor-assess",
+        "responseMode": "responseNode"
+      },
+      "id": "webhook",
+      "name": "接收诊断请求",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=http://backend:8010/api/projects/{{$json.body.project_id}}/assess",
+        "options": {}
+      },
+      "id": "assess",
+      "name": "调用诊断 API",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [500, 300]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{$json}}"
+      },
+      "id": "response",
+      "name": "返回诊断结果",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [760, 300]
+    }
+  ],
+  "connections": {
+    "接收诊断请求": {
+      "main": [[{"node": "调用诊断 API", "type": "main", "index": 0}]]
+    },
+    "调用诊断 API": {
+      "main": [[{"node": "返回诊断结果", "type": "main", "index": 0}]]
+    }
+  },
+  "active": false,
+  "settings": {"executionOrder": "v1"},
+  "versionId": "8fca81c8-5398-44fa-a7e4-ec4d8bc50b31",
+  "meta": {"templateCredsSetupCompleted": true},
+  "tags": []
+}
