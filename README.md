@@ -219,7 +219,7 @@ evaluation/          30 条评测用例
 knowledge/           公开演示知识库说明
 demo/                演示企业画像
 scripts/             一键端到端冒烟测试
-docs/                架构、演示指南、面试问答和简历描述
+docs/                架构、演示指南
 .github/workflows/   CI自动测试与构建
 开发计划.txt         完整开发和验收计划
 ```
